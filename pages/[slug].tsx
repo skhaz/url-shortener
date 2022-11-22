@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
-import hashids from '~/providers/hashids'
-import prisma from '~/providers/prisma'
+import { hashids } from '~/providers/hashids'
+import { prisma } from '~/providers/prisma'
 
 const decode = (id: string): number | null => {
   try {

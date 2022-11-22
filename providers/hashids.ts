@@ -1,5 +1,3 @@
 import Hashids from 'hashids'
 
-const hashids = new Hashids()
-
-export default hashids
+export const hashids = new Hashids()

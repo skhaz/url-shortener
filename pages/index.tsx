@@ -1,20 +1,10 @@
-import type { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { useCallback } from 'react'
-import { useForm, SubmitHandler, Resolver } from 'react-hook-form'
-import * as yup from 'yup'
-import { InferType, SchemaOf, AnySchema, ValidationError } from 'yup'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { useYupValidationResolver } from '~/hooks/yup'
-import hashids from '~/providers/hashids'
-import prisma from '~/providers/prisma'
-import styles from '~/styles/Home.module.css'
+import { schema } from '~/schemas/form'
 
 type Input = {
   url: string
 }
-
-const schema = yup.object({
-  url: yup.string().url().required(),
-})
 
 const Home = () => {
   const resolver = useYupValidationResolver(schema)
@@ -32,8 +22,8 @@ const Home = () => {
         <p>placeholder</p>
       </label>
       <input id="input" type="text" placeholder="placeholder" {...register('url')}></input>
-      <input type="submit" />
       {errors.url && <p>{errors.url?.message}</p>}
+      <input type="submit" />
     </form>
   )
 }
