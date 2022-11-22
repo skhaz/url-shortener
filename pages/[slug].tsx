@@ -1,4 +1,4 @@
-import type { GetServerSideProps, GetStaticPropsContext } from 'next'
+import type { GetServerSideProps } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
 import hashids from '~/providers/hashids'
 import prisma from '~/providers/prisma'
@@ -44,7 +44,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (!entry) {
     return {
-      props: {},
+      redirect: {
+        destination: '/404',
+        permanent: false,
+      },
     }
   }
 
