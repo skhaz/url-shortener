@@ -4,7 +4,7 @@ import hashids from '~/providers/hashids'
 import prisma from '~/providers/prisma'
 import styles from '~/styles/Home.module.css'
 
-export default () => {
+const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -59,3 +59,5 @@ export default () => {
     </div>
   )
 }
+
+export default Home

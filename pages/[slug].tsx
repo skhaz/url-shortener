@@ -58,4 +58,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default () => <h1>Test</h1>
+const Slug = () => null
+
+export default Slug
