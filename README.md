@@ -1,8 +1,8 @@
 ### Libraries
 
-* Next.js
-* React
-* react-hook-form
-* yup
-* tRPC
-* Prisma
+- Next.js
+- React
+- react-hook-form
+- yup
+- tRPC
+- Prisma

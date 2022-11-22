@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
-type Input = {
+type Form = {
   url: string
 }
 
@@ -13,9 +13,9 @@ const Home = () => {
     formState: { errors },
     handleSubmit,
     register,
-  } = useForm<Input>({ resolver })
+  } = useForm<Form>({ resolver })
 
-  const onSubmit: SubmitHandler<Input> = (data) => console.log(data.url)
+  const onSubmit: SubmitHandler<Form> = (data) => console.log(data.url)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
