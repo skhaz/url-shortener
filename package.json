@@ -3,17 +3,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "database": "docker run --interactive --tty --rm --name mariadb --mount type=tmpfs,destination=/var/lib/mysql --publish 3306:3306 --env MARIADB_ROOT_PASSWORD=docker --env MARIADB_DATABASE=docker --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 mariadb:10",
     "format": "prettier '**/*' --write --ignore-unknown",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "^4.6.1",
+    "hashids": "^2.2.10",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
