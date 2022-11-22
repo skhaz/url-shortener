@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Header } from '~/components/header'
+import { Input } from '~/components/input'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
@@ -26,6 +27,7 @@ const Home = () => {
       </label>
       <input id="input" type="text" placeholder="placeholder" {...register('url')}></input>
       {errors.url && <p>{errors.url.message}</p>}
+      <Input />
       <input type="submit" />
     </form>
   )
