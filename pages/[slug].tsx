@@ -3,8 +3,6 @@ import type { ParsedUrlQuery } from 'querystring'
 import hashids from '~/providers/hashids'
 import prisma from '~/providers/prisma'
 
-type Params = { slug: string } & ParsedUrlQuery
-
 const decode = (id: string): number | null => {
   try {
     const ids = hashids.decode(id)
@@ -24,6 +22,8 @@ const decode = (id: string): number | null => {
     return null
   }
 }
+
+type Params = { slug: string } & ParsedUrlQuery
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.params as Params
@@ -58,4 +58,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default () => null
+export default () => <h1>Test</h1>
