@@ -1,27 +1,7 @@
 import type { GetServerSideProps } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
-import { hashids } from '~/providers/hashids'
+import { decode } from '~/helpers/decode'
 import { prisma } from '~/providers/prisma'
-
-const decode = (id: string): number | null => {
-  try {
-    const ids = hashids.decode(id)
-
-    if (!ids.length) {
-      return null
-    }
-
-    const number = Number(ids[0])
-
-    if (isNaN(number)) {
-      return null
-    }
-
-    return number
-  } catch (error) {
-    return null
-  }
-}
 
 type Params = { slug: string } & ParsedUrlQuery
 
