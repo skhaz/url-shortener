@@ -2,6 +2,7 @@
 
 - Next.js
 - React
+- Tailwind
 - react-hook-form
 - yup
 - tRPC
