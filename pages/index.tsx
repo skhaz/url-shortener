@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { Header } from '~/components/header'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Header />
       <label htmlFor="input">
         <p>placeholder</p>
       </label>
