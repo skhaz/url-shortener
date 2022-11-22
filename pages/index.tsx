@@ -8,6 +8,7 @@ type Input = {
 
 const Home = () => {
   const resolver = useYupValidationResolver(schema)
+
   const {
     formState: { errors },
     handleSubmit,
@@ -22,7 +23,7 @@ const Home = () => {
         <p>placeholder</p>
       </label>
       <input id="input" type="text" placeholder="placeholder" {...register('url')}></input>
-      {errors.url && <p>{errors.url?.message}</p>}
+      {errors.url && <p>{errors.url.message}</p>}
       <input type="submit" />
     </form>
   )
