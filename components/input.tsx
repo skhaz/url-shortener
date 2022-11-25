@@ -25,7 +25,19 @@ export const Input: FunctionComponent<InputProps> = ({ error, id, ...rest }) => 
       {...rest}
     />
     {error && (
-      <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">{error}</span>
+      <span
+        className="
+        flex
+        items-center
+        font-medium
+        tracking-wide
+        text-red-500
+        text-xs
+        mt-1
+        ml-1"
+      >
+        {error}
+      </span>
     )}
   </div>
 )
