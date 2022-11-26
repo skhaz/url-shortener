@@ -4,8 +4,10 @@ export type InputProps = {
   error?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
-export const Input: FunctionComponent<InputProps> = ({ error, ...rest }) => (
-  <div>
+// https://jujuontheweb.medium.com/how-to-use-react-hook-form-with-your-custom-form-components-a86a1a77cf3c
+
+export const Input: FunctionComponent<InputProps> = ({ error, ...props }) => (
+  <>
     <input
       className="
         shadow
@@ -19,7 +21,7 @@ export const Input: FunctionComponent<InputProps> = ({ error, ...rest }) => (
         leading-tight
         focus:outline-none
         focus:shadow-outline"
-      {...rest}
+      {...props}
     />
     {error && (
       <span
@@ -36,5 +38,5 @@ export const Input: FunctionComponent<InputProps> = ({ error, ...rest }) => (
         {error}
       </span>
     )}
-  </div>
+  </>
 )
