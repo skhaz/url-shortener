@@ -22,7 +22,11 @@ const Home = () => {
   } = useForm<Form>({ resolver })
 
   const onSubmit: SubmitHandler<Form> = async (data) => {
-    await addEntry.mutateAsync(data)
+    try {
+      await addEntry.mutateAsync(data)
+    } catch (error) {
+      alert(error)
+    }
   }
 
   return (
