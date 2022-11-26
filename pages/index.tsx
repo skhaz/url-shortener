@@ -19,12 +19,14 @@ const Home = () => {
     formState: { errors },
     handleSubmit,
     register,
+    reset,
   } = useForm<Form>({ resolver })
 
   const onSubmit: SubmitHandler<Form> = async (data) => {
     try {
       const { slug } = await addEntry.mutateAsync(data)
 
+      reset()
       alert(JSON.stringify({ slug }))
     } catch (error) {
       console.error(error)
