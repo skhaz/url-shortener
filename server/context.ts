@@ -6,7 +6,6 @@ export const createContext = async (opts?: CreateNextContextOptions) => {
   return {
     req: opts?.req,
     prisma,
-    entry: prisma.entry,
   }
 }
 
