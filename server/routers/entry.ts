@@ -9,7 +9,7 @@ export const entryRouter = router({
     .mutation(async ({ ctx, input }) => {
       const { url } = input
 
-      const { id } = await ctx.entry.create({ data: { url } })
+      const { id } = await ctx.prisma.entry.create({ data: { url } })
 
       return hashids.encode(id)
     }),
