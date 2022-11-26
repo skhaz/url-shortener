@@ -1,15 +1,17 @@
 import { prisma } from '~/providers/prisma'
 import { schema } from '~/schemas/form'
 import { router, publicProcedure } from '~/server/trpc'
+import { hashids } from '~/providers/hashids'
 
 export const entryRouter = router({
-  add: publicProcedure.input(schema).mutation(async ({ input }) => {
-    const { url } = input
+  add: publicProcedure
+    .input(schema)
+    .output()
+    .mutation(async ({ input }) => {
+      const { url } = input
 
-    const entry = await prisma.entry.create({ data: { url } })
+      const { id } = await prisma.entry.create({ data: { url } })
 
-    // TODO return hashids
-
-    return entry
-  }),
+      return hashids.encode(id)
+    }),
 })
