@@ -23,9 +23,11 @@ const Home = () => {
 
   const onSubmit: SubmitHandler<Form> = async (data) => {
     try {
-      await addEntry.mutateAsync(data)
+      const { slug } = await addEntry.mutateAsync(data)
+
+      alert(JSON.stringify({ slug }))
     } catch (error) {
-      alert(error)
+      console.error(error)
     }
   }
 
