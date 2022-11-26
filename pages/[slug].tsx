@@ -12,7 +12,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (!id) {
     return {
-      props: {},
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
     }
   }
 
