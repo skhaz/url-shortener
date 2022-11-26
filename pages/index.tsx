@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { Body } from '~/components/body'
 import { Form } from '~/components/form'
 import { Input } from '~/components/input'
+import { trpc } from '~/hocs/trpc'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
@@ -10,6 +11,8 @@ type Form = {
 }
 
 const Home = () => {
+  const addEntry = trpc.entry.add.useMutation()
+
   const resolver = useYupValidationResolver(schema)
 
   const {
@@ -18,7 +21,9 @@ const Home = () => {
     register,
   } = useForm<Form>({ resolver })
 
-  const onSubmit: SubmitHandler<Form> = (data) => console.log(data.url)
+  const onSubmit: SubmitHandler<Form> = async (data) => {
+    await addEntry.mutateAsync(data)
+  }
 
   return (
     <Body>
