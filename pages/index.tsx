@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Body } from '~/components/body'
 import { Form } from '~/components/form'
-import { Header } from '~/components/header'
 import { Input } from '~/components/input'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
