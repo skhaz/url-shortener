@@ -1,8 +1,6 @@
 import type { FunctionComponent, InputHTMLAttributes } from 'react'
 
-export type InputProps = {
-  error?: string
-} & InputHTMLAttributes<HTMLInputElement>
+export type InputProps = { error?: string } & InputHTMLAttributes<HTMLInputElement>
 
 export const Input: FunctionComponent<InputProps> = ({ error, ...props }) => (
   <>

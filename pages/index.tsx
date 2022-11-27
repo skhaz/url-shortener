@@ -11,7 +11,7 @@ type Form = {
 }
 
 const Home = () => {
-  const addEntry = trpc.entry.add.useMutation()
+  const addEntry = trpc.entry.add.useMutation({ retry: 3 })
 
   const resolver = useYupValidationResolver(schema)
 
@@ -23,8 +23,10 @@ const Home = () => {
   } = useForm<Form>({ resolver })
 
   const onSubmit: SubmitHandler<Form> = async (data) => {
+    const url = 'http://localhost:3000/'
+
     try {
-      const { slug } = await addEntry.mutateAsync({ url: 'https://example.com' })
+      const { slug } = await addEntry.mutateAsync({ url })
 
       reset()
       alert(JSON.stringify({ slug }))

@@ -9,7 +9,7 @@ export const entryRouter = router({
     .output(output)
     .mutation(async ({ ctx, input }) => {
       // const { url } = input
-      console.log('Input', JSON.stringify(input))
+      console.log('Input', JSON.stringify(input.url))
 
       const url = 'example.com'
 
