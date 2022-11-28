@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { decode } from '~/helpers/decode'
 import { prisma } from '~/providers/prisma'
 
-export default async (request: NextApiRequest, response: NextApiResponse) => {
+export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   const { slug } = request.query
 
   const id = decode(slug as string)

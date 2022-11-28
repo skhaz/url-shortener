@@ -1,12 +1,12 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Body } from '~/components/body'
-import { Form } from '~/components/form'
-import { Input } from '~/components/input'
+import { Body } from '~/components/Body'
+import { Form } from '~/components/Form'
+import { Input } from '~/components/Input'
 import { trpc } from '~/hocs/trpc'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
-type Form = {
+type FormValues = {
   url: string
 }
 
@@ -20,16 +20,14 @@ const Home = () => {
     handleSubmit,
     register,
     reset,
-  } = useForm<Form>({ resolver })
+  } = useForm<FormValues>({ resolver })
 
-  const onSubmit: SubmitHandler<Form> = async (data) => {
-    const url = 'http://localhost:3000/'
-
+  const onSubmit: SubmitHandler<FormValues> = async ({ url }) => {
     try {
       const { slug } = await addEntry.mutateAsync({ url })
 
-      reset()
       alert(JSON.stringify({ slug }))
+      reset()
     } catch (error) {
       console.error(error)
     }

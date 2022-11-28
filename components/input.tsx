@@ -1,8 +1,9 @@
+import { forwardRef } from 'react'
 import type { FunctionComponent, InputHTMLAttributes } from 'react'
 
 export type InputProps = { error?: string } & InputHTMLAttributes<HTMLInputElement>
 
-export const Input: FunctionComponent<InputProps> = ({ error, ...props }) => (
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ error, ...props }, ref) => (
   <>
     <input
       className="
@@ -17,6 +18,7 @@ export const Input: FunctionComponent<InputProps> = ({ error, ...props }) => (
         leading-tight
         focus:outline-none
         focus:shadow-outline"
+      ref={ref}
       {...props}
     />
     {error && (
@@ -35,4 +37,4 @@ export const Input: FunctionComponent<InputProps> = ({ error, ...props }) => (
       </span>
     )}
   </>
-)
+))
