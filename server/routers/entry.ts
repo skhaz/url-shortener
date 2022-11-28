@@ -7,10 +7,8 @@ export const entryRouter = router({
   add: publicProcedure
     .input(input)
     .output(output)
-    .mutation(async ({ ctx, input }) => {
-      console.log('input', JSON.stringify(input))
-
-      const url = 'example.com'
+    .mutation(async ({ ctx, input: {url} }) => {
+      console.log('url', JSON.stringify(url))
 
       const { id } = await ctx.prisma.entry.create({ data: { url } })
 
