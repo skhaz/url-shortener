@@ -6,7 +6,8 @@
     "database": "docker run --interactive --tty --rm --name mariadb --mount type=tmpfs,destination=/var/lib/mysql --publish 3306:3306 --env MARIADB_ROOT_PASSWORD=docker --env MARIADB_DATABASE=docker --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 mariadb:10",
     "format": "prettier '**/*' --write --ignore-unknown",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "^4.6.1",
@@ -31,6 +32,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.28.0",
     "eslint-config-next": "^13.0.4",
+    "husky": "^8.0.2",
     "postcss": "^8.4.19",
     "prettier": "^2.7.1",
     "prisma": "^4.6.1",
