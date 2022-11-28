@@ -1,10 +1,10 @@
 import type { FunctionComponent } from 'react'
 
-export type BodyProps = {
+type BodyProps = {
   children: JSX.Element
 }
 
-export const Body: FunctionComponent<BodyProps> = ({ children }) => (
+const Body: FunctionComponent<BodyProps> = ({ children }) => (
   <div
     className="
     flex
@@ -20,3 +20,7 @@ export const Body: FunctionComponent<BodyProps> = ({ children }) => (
     <div className="flex flex-col mb-4">{children}</div>
   </div>
 )
+
+Body.displayName = 'Body'
+
+export default Body

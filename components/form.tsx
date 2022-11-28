@@ -1,13 +1,17 @@
 import type { FormEventHandler, FunctionComponent } from 'react'
 
-export type FormProps = {
+type FormProps = {
   children: JSX.Element
   onSubmit: FormEventHandler
 }
 
-export const Form: FunctionComponent<FormProps> = ({ children, onSubmit }) => (
+const Form: FunctionComponent<FormProps> = ({ children, onSubmit }) => (
   <form onSubmit={onSubmit}>
     {children}
     <input type="submit" />
   </form>
 )
+
+Form.displayName = 'Form'
+
+export default Form

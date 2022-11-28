@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
-import type { FunctionComponent, InputHTMLAttributes } from 'react'
+import type { InputHTMLAttributes } from 'react'
 
-export type InputProps = { error?: string } & InputHTMLAttributes<HTMLInputElement>
+type InputProps = { error?: string } & InputHTMLAttributes<HTMLInputElement>
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ error, ...props }, ref) => (
+const Input = forwardRef<HTMLInputElement, InputProps>(({ error, ...props }, ref) => (
   <>
     <input
       className="
@@ -38,3 +38,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ error, ...props
     )}
   </>
 ))
+
+Input.displayName = 'Input'
+
+export default Input
