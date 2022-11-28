@@ -8,16 +8,13 @@ export const entryRouter = router({
     .input(input)
     .output(output)
     .mutation(async ({ ctx, input }) => {
-      // const { url } = input
-      console.log('Input', JSON.stringify(input.url))
+      console.log('input', JSON.stringify(input))
 
       const url = 'example.com'
 
       const { id } = await ctx.prisma.entry.create({ data: { url } })
 
       const slug = hashids.encode(id)
-
-      console.log('Slug', slug)
 
       return { slug }
     }),
