@@ -1,3 +1,5 @@
+# Next.js URL Shortener
+
 ### Libraries
 
 - Next.js
