@@ -4,10 +4,10 @@
 
 - Next.js
 - React
+- React Hook Form
 - Tailwind
-- react-hook-form
-- hashids
-- yup
+- Hashids
+- Yup
 - tRPC
 - Prisma
 
