@@ -1,3 +1,3 @@
 import Hashids from 'hashids'
 
-export const hashids = new Hashids()
+export const hashids = new Hashids(process.env.SALT)
