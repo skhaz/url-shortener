@@ -4,6 +4,7 @@
 - React
 - Tailwind
 - react-hook-form
+- hashids
 - yup
 - tRPC
 - Prisma
