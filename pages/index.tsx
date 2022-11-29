@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Zelda - URL Shortener</title>
+        <title>URL Shortener</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="URL shortener" />
       </Head>
