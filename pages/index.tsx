@@ -27,7 +27,7 @@ const Home = () => {
 
       navigator.clipboard.writeText(url)
 
-      alert('URL copied to clipboard')
+      alert(`${url} copied to clipboard`)
 
       reset()
     },
