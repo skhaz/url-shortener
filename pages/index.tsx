@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Body from '~/components/Body'
 import Form from '~/components/Form'
@@ -37,11 +38,17 @@ const Home = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => mutation.mutate(data)
 
   return (
-    <Body>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input placeholder="https://example.com/" error={errors.url?.message} {...register('url')} />
-      </Form>
-    </Body>
+    <>
+      <Head>
+        <title>Zelda - URL Shortener</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Body>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Input placeholder="https://example.com/" error={errors.url?.message} {...register('url')} />
+        </Form>
+      </Body>
+    </>
   )
 }
 
