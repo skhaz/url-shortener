@@ -31,7 +31,7 @@ const Home = () => {
     },
   })
 
-  const onSubmit: SubmitHandler<FormValues> = async ({ url }) => mutation.mutate({ url })
+  const onSubmit: SubmitHandler<FormValues> = async (data) => mutation.mutate(data)
 
   return (
     <Body>
