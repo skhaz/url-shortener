@@ -11,6 +11,15 @@ type FormValues = {
 }
 
 const Home = () => {
+  const resolver = useYupValidationResolver(schema)
+
+  const {
+    formState: { errors },
+    handleSubmit,
+    register,
+    reset,
+  } = useForm<FormValues>({ resolver })
+
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async (data) => {
       alert(JSON.stringify(data))
@@ -21,15 +30,6 @@ const Home = () => {
       alert(error)
     },
   })
-
-  const resolver = useYupValidationResolver(schema)
-
-  const {
-    formState: { errors },
-    handleSubmit,
-    register,
-    reset,
-  } = useForm<FormValues>({ resolver })
 
   const onSubmit: SubmitHandler<FormValues> = async ({ url }) => mutation.mutate({ url })
 
