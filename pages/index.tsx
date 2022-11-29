@@ -42,6 +42,7 @@ const Home = () => {
       <Head>
         <title>Zelda - URL Shortener</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="URL shortener" />
       </Head>
       <Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
