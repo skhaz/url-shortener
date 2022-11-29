@@ -21,9 +21,8 @@ const Home = () => {
   } = useForm<FormValues>({ resolver })
 
   const mutation = trpc.entry.add.useMutation({
-    onSuccess: async (data) => {
-      alert(JSON.stringify(data))
-      alert(JSON.stringify(data.slug))
+    onSuccess: async ({ slug }) => {
+      alert(slug)
 
       reset()
     },
