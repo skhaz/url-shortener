@@ -1,5 +1,4 @@
-import { forwardRef } from 'react'
-import type { InputHTMLAttributes } from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
 
 type InputProps = { error?: string } & InputHTMLAttributes<HTMLInputElement>
 
