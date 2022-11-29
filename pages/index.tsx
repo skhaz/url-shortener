@@ -23,11 +23,11 @@ const Home = () => {
 
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async ({ slug }) => {
-      const url = [process.env.BASE_URL, slug].join('/')
+      const url = [process.env.NEXT_PUBLIC_BASE_URL, slug].join('/')
 
       navigator.clipboard.writeText(url)
 
-      alert(`BASE_URL ${process.env.BASE_URL} / ${url} copied to clipboard`)
+      alert(`URL copied to clipboard`)
 
       reset()
     },
