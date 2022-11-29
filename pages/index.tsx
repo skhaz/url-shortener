@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <Body>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input placeholder="https://example.com" error={errors.url?.message} {...register('url')} />
+        <Input placeholder="https://example.com/" error={errors.url?.message} {...register('url')} />
       </Form>
     </Body>
   )
