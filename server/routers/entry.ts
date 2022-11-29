@@ -7,8 +7,8 @@ export const entryRouter = router({
   add: publicProcedure
     .input(input)
     .output(output)
-    .mutation(async ({ ctx, input: { url } }) => {
-      const { id } = await ctx.prisma.entry.create({ data: { url } })
+    .mutation(async ({ ctx, input }) => {
+      const { id } = await ctx.prisma.entry.create({ data: input })
 
       const slug = hashids.encode(id)
 
