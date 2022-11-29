@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Body from '~/components/Body'
 import Form from '~/components/Form'
 import Input from '~/components/Input'
+import { getBaseUrl } from '~/helpers/urls'
 import { trpc } from '~/hocs/trpc'
 import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
@@ -22,7 +23,9 @@ const Home = () => {
 
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async ({ slug }) => {
-      alert(slug)
+      const url = [getBaseUrl(), slug].join('/')
+
+      navigator.clipboard.writeText(url)
 
       reset()
     },
