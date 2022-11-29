@@ -1,10 +1,7 @@
 import { initTRPC } from '@trpc/server'
-import superjson from 'superjson'
 import type { Context } from '~/server/context'
 
-const rpc = initTRPC.context<Context>().create({
-  transformer: superjson,
-})
+const rpc = initTRPC.context<Context>().create()
 
 export const publicProcedure = rpc.procedure
 export const router = rpc.router
