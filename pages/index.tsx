@@ -23,6 +23,7 @@ const Home = () => {
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async (data) => {
       alert(JSON.stringify(data))
+      alert(JSON.stringify(data.slug))
 
       reset()
     },
