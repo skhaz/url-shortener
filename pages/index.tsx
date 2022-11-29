@@ -30,7 +30,7 @@ const Home = () => {
       reset()
     },
     onError: async (error) => {
-      alert(error)
+      alert(error.message)
     },
   })
 
