@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { decode } from '~/helpers/decode'
 import { prisma } from '~/providers/prisma'
+import { redis } from '~/providers/redis'
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   const { slug } = request.query
@@ -22,6 +23,9 @@ export default async function handler(request: NextApiRequest, response: NextApi
     response.redirect(307, '/404')
     return
   }
+
+  await redis.connect()
+  await redis.incr(id.toString())
 
   const { url } = entry
 
