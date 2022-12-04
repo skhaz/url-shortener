@@ -10,6 +10,7 @@
 - Yup
 - tRPC
 - Prisma
+- Redis
 
 ### Running
 
