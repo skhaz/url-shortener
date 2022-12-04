@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `entry` (
+CREATE TABLE `entries` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `url` VARCHAR(2048) NOT NULL,
 
