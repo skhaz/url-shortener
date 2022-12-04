@@ -1,3 +1,9 @@
-import { createClient } from 'redis'
+import Redis from 'ioredis'
 
-export const redis = createClient({ url: process.env.REDIS_URL })
+const { REDIS_URL } = process.env
+
+if (!REDIS_URL) {
+  throw new Error('REDIS_URL is undefined')
+}
+
+export const redis = new Redis(REDIS_URL)

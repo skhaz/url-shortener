@@ -18,11 +18,11 @@
     "@trpc/react-query": "^10.4.3",
     "@trpc/server": "^10.4.3",
     "hashids": "^2.2.10",
+    "ioredis": "^5.2.4",
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
-    "redis": "^4.5.1",
     "zod": "^3.19.1"
   },
   "devDependencies": {

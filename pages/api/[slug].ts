@@ -24,10 +24,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
     return
   }
 
-  if (!redis.isOpen) {
-    await redis.connect()
-  }
-
   await redis.incr(id.toString())
 
   const { url } = entry
