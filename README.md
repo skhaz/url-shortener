@@ -16,7 +16,7 @@
 On a terminal, run
 
 ```shell
-npm run database
+docker compose up
 ```
 
 On another terminal, run

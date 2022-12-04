@@ -4,7 +4,6 @@
     "dev": "next dev",
     "prebuild": "rimraf .next/",
     "build": "next build",
-    "database": "docker run --interactive --tty --rm --name mariadb --mount type=tmpfs,destination=/var/lib/mysql --publish 3306:3306 --env MARIADB_ROOT_PASSWORD=docker --env MARIADB_DATABASE=docker --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 mariadb:10",
     "format": "prettier '**/*' --write --ignore-unknown",
     "start": "next start",
     "lint": "next lint",

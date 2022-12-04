@@ -1,0 +1,17 @@
+services:
+  mariadb:
+    image: mariadb:10
+    environment:
+      - MARIADB_ROOT_PASSWORD=docker
+      - MARIADB_DATABASE=docker
+      - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=true
+    ports:
+      - '3306:3306'
+    tmpfs:
+      - /var/lib/mysql
+  redis:
+    image: redis:7
+    ports:
+      - '6379:6379'
+    tmpfs:
+      - /data
