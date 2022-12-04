@@ -1,11 +1,10 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import Head from 'next/head'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Body from '~/components/Body'
 import Form from '~/components/Form'
 import Input from '~/components/Input'
-import { getBaseUrl } from '~/helpers/urls'
 import { trpc } from '~/hocs/trpc'
-import { useYupValidationResolver } from '~/hooks/yup'
 import { schema } from '~/schemas/form'
 
 type FormValues = {
@@ -13,14 +12,12 @@ type FormValues = {
 }
 
 const Home = () => {
-  const resolver = useYupValidationResolver(schema)
-
   const {
     formState: { errors },
     handleSubmit,
     register,
     reset,
-  } = useForm<FormValues>({ resolver })
+  } = useForm<FormValues>({ resolver: zodResolver(schema) })
 
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async ({ slug }) => {

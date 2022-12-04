@@ -1,5 +1,5 @@
-import { object, string } from 'yup'
+import { object, string } from 'zod'
 
 export const schema = object({
-  slug: string().required(),
+  slug: string(),
 })

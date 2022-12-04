@@ -1,10 +1,8 @@
 import type { inferAsyncReturnType } from '@trpc/server'
-import type { CreateNextContextOptions } from '@trpc/server/adapters/next'
 import { prisma } from '~/providers/prisma'
 
-export const createContext = async (opts?: CreateNextContextOptions) => {
+export const createContext = async () => {
   return {
-    req: opts?.req,
     prisma,
   }
 }
