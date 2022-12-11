@@ -5,6 +5,7 @@ import Body from '~/components/Body'
 import Form from '~/components/Form'
 import Input from '~/components/Input'
 import { trpc } from '~/hocs/trpc'
+import { NEXT_PUBLIC_BASE_URL } from '~/providers/environment'
 import { schema } from '~/schemas/form'
 
 type FormValues = {
@@ -21,7 +22,7 @@ const Home = () => {
 
   const mutation = trpc.entry.add.useMutation({
     onSuccess: async ({ slug }) => {
-      const url = [process.env.NEXT_PUBLIC_BASE_URL, slug].join('/')
+      const url = [NEXT_PUBLIC_BASE_URL, slug].join('/')
 
       navigator.clipboard.writeText(url)
 
